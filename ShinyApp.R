@@ -10,12 +10,38 @@ ui <- fluidPage(
     sidebarPanel(
       textInput("text", h3("Location"),
                 value = "Enter location..."),
+      checkboxInput('bar','Select All/None'),
       checkboxGroupInput("checkGroup",
                            h3("Categories"),
-                           choices = list("Concerts" = 1,
-                                          "Choice 2" = 2,
-                                          "Choice 3" = 3),
-                           selected = 1),
+                           choices = list("music"=1,
+                                          "conference"=2,
+                                          "comedy"=3,
+                                          "learning_education"=4,
+                                          "family_fun_kids"=5,
+                                          "festivals_parades"=6,
+                                          "movies_film"=7,
+                                          "food"=8,
+                                          "fundraisers"=9,
+                                          "art"=10,
+                                          "support"=11,
+                                          "holiday"=12,
+                                          "books"=13,
+                                          "attractions"=14,
+                                          "community"=15,
+                                          "business"=16,
+                                          "singles_social"=17,
+                                          "schools_alumni"=18,
+                                          "clubs_associations"=19,
+                                          "outdoors_recreation"=20,
+                                          "performing_arts"=21,
+                                          "animals"=22,
+                                          "politics_activism"=23,
+                                          "sales"=24,
+                                          "science"=25,
+                                          "religion_spirituality"=26,
+                                          "sports"=27,
+                                          "technology"=28,
+                                          "other"=29)),
       dateRangeInput("dates", h3("Date range")),
       actionButton("cast", "Search for events!", icon = icon("thumbs-up"))
         ),
@@ -27,24 +53,41 @@ ui <- fluidPage(
 
 
 # Define server
-server <- function(input, output) {
-  cast <- eventReactive(input$cast, {
-    buffon_experiment(B = input$B, plane_width = input$plane,
-                      seed = input$seed)
+server <- function(input, output, session) {
+  observe({
+    updateCheckboxGroupInput(session,
+      "checkGroup", choices = list("music"=1,
+                                   "conference"=2,
+                                   "comedy"=3,
+                                   "learning_education"=4,
+                                   "family_fun_kids"=5,
+                                   "festivals_parades"=6,
+                                   "movies_film"=7,
+                                   "food"=8,
+                                   "fundraisers"=9,
+                                   "art"=10,
+                                   "support"=11,
+                                   "holiday"=12,
+                                   "books"=13,
+                                   "attractions"=14,
+                                   "community"=15,
+                                   "business"=16,
+                                   "singles_social"=17,
+                                   "schools_alumni"=18,
+                                   "clubs_associations"=19,
+                                   "outdoors_recreation"=20,
+                                   "performing_arts"=21,
+                                   "animals"=22,
+                                   "politics_activism"=23,
+                                   "sales"=24,
+                                   "science"=25,
+                                   "religion_spirituality"=26,
+                                   "sports"=27,
+                                   "technology"=28,
+                                   "other"=29), selected = if (input$bar) 1:29
+    )
   })
 
-  conv <- eventReactive(input$cast, {
-    converge(B = input$B, plane_width = input$plan,
-             seed = input$seed, M = input$M)
-  })
-
-  output$exp <- renderPlot({
-    plot(cast())
-  }, height = 620)
-
-  output$conv <- renderPlot({
-    conv()
-  }, height = 620)
 }
 
 # Run the application
