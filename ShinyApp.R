@@ -4,7 +4,7 @@ library(shiny)
 ui <- fluidPage(
 
   # Application title
-  titlePanel(h4("Buffon\'s needle experiment - Inputs:")),
+  titlePanel(h4("Music Mapp: Find Events Near You!")),
 
   sidebarLayout(
     sidebarPanel(
