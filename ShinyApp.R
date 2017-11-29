@@ -8,7 +8,6 @@ ui <- fluidPage(
 
   sidebarLayout(
     sidebarPanel(
-      fluidRow(
         selectInput("var",
                   label = "Choose a location to display",
                   choices = list("Percent White",
@@ -16,22 +15,19 @@ ui <- fluidPage(
                                  "Percent Hispanic",
                                  "Percent Asian"),
                   selected = "Percent White"),
-        column(3,
-             checkboxGroupInput("checkGroup",
-                                h3("Categories"),
-                                choices = list("Concerts" = 1,
-                                               "Choice 2" = 2,
-                                               "Choice 3" = 3),
-                                selected = 1)),
-
-          column(3,
-               dateRangeInput("dates", h3("Date range"))),
+        checkboxGroupInput("checkGroup",
+                           h3("Categories"),
+                           choices = list("Concerts" = 1,
+                                          "Choice 2" = 2,
+                                          "Choice 3" = 3),
+                           selected = 1),
+        dateRangeInput("dates", h3("Date range")),
         actionButton("cast", "Search for events!", icon = icon("thumbs-up"))
         ),
     mainPanel(textOutput("Map"))
     )
   )
-)
+
 
 
 
