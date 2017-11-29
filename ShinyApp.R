@@ -50,3 +50,6 @@ server <- function(input, output) {
 # Run the application
 shinyApp(ui = ui, server = server)
 
+library(devtools)
+devtools::install_github("group8_project/musicmapp")
+library(musicmapp)
