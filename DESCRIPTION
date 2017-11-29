@@ -1,0 +1,17 @@
+Package: musicmapp
+Type: Package
+Title: Music Mapp (Title Case)
+Version: 0.1.0
+Authors@R: c(
+    person("Jaclyn", "Rothenberg", email = "jfr25@psu.edu", role = c("aut","cre")),
+    person("Angela", "Ting", role = "aut"),
+    person("Ryan", "Faris", role = "aut"),
+    person("Conner", "Shoop", role = "aut")
+    )
+Maintainer: Jaclyn Rothenberg <jfr25@psu.edu>
+Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
