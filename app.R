@@ -8,36 +8,32 @@ ui <- fluidPage(
 
   sidebarLayout(
     sidebarPanel(
-      selectInput("var",
+      fluidRow(
+        selectInput("var",
                   label = "Choose a location to display",
                   choices = list("Percent White",
                                  "Percent Black",
                                  "Percent Hispanic",
                                  "Percent Asian"),
                   selected = "Percent White"),
-      column(3,
+        column(3,
              checkboxGroupInput("checkGroup",
                                 h3("Categories"),
                                 choices = list("Concerts" = 1,
                                                "Choice 2" = 2,
                                                "Choice 3" = 3),
                                 selected = 1)),
-      fluidRow(
 
-        column(3,
+          column(3,
                dateRangeInput("dates", h3("Date range"))),
         actionButton("cast", "Search for events!", icon = icon("thumbs-up"))
-    ),
-
-    mainPanel(
-      tabsetPanel(
-        tabPanel("Map", plotOutput("exp")),
-        tabPanel("Tiles", plotOutput("conv"))
-      )
+        ),
+    mainPanel(textOutput("Map"))
     )
   )
 )
-)
+
+
 
 # Define server
 server <- function(input, output) {
