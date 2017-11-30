@@ -9,8 +9,10 @@ Authors@R: c(
     person("Conner", "Shoop", role = "aut")
     )
 Maintainer: Jaclyn Rothenberg <jfr25@psu.edu>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Description: This package uses dataframes created from the Eventful API which
+creates a visual map that displays events in a specified geographic area. The users 
+can input their location and a range of dates to find events from 29 categories, such
+as music, comedy, festivals and many more. 
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
