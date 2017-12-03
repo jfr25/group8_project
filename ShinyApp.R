@@ -1,5 +1,6 @@
 
 library(shiny)
+library(leaflet)
 
 ui <- fluidPage(
 
@@ -45,7 +46,11 @@ ui <- fluidPage(
       dateRangeInput("dates", h3("Date range")),
       actionButton("cast", "Search for events!", icon = icon("thumbs-up"))
         ),
-    mainPanel(textOutput("Map"))
+    mainPanel(textOutput("Map"),
+              leafletOutput("mymap"),
+              p(),
+              actionButton("recalc", "New points")
+    )
     )
   )
 
@@ -54,6 +59,17 @@ ui <- fluidPage(
 
 # Define server
 server <- function(input, output, session) {
+  points <- eventReactive(input$recalc, {
+    cbind(13,48)
+  }, ignoreNULL = FALSE)
+
+  output$mymap <- renderLeaflet({
+    leaflet() %>%
+      addProviderTiles(providers$Stamen.TonerLite,
+                       options = providerTileOptions(noWrap = TRUE)
+      ) %>%
+      addMarkers(data = points())
+  })
   observe({
     updateCheckboxGroupInput(session,
       "checkGroup", choices = list("music"=1,
