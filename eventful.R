@@ -26,6 +26,7 @@ event_data <- as.data.frame(do.call('rbind',event_data),nrow=length(event_data),
 #call search function
 event_data <- search_events("New York", "december", "comedy",key)
 
+library(dplyr)
 #create data frame specifically of latitude and longitude
 lat_lon <- event_data %>%
   select(latitude, longitude)

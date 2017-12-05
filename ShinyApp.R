@@ -15,8 +15,7 @@ ui <- fluidPage(
       checkboxGroupInput("checkGroup",
                            h3("Categories"),
                            choices = list("music"=1,
-                                          "conference"=2,
-                                          "comedy"=3,
+                                          "conference"=2, "comedy"=3,
                                           "learning_education"=4,
                                           "family_fun_kids"=5,
                                           "festivals_parades"=6,
@@ -43,13 +42,12 @@ ui <- fluidPage(
                                           "sports"=27,
                                           "technology"=28,
                                           "other"=29)),
-      dateRangeInput("dates", h3("Date range")),
-      actionButton("cast", "Search for events!", icon = icon("thumbs-up"))
+      dateRangeInput("dates", h3("Date range"))
         ),
     mainPanel(textOutput("Map"),
               leafletOutput("mymap"),
               p(),
-              actionButton("recalc", "New points")
+              actionButton("cast", "Search for events!", icon = icon("thumbs-up"))
     )
     )
   )
@@ -59,8 +57,8 @@ ui <- fluidPage(
 
 # Define server
 server <- function(input, output, session) {
-  points <- eventReactive(input$recalc, {
-    cbind(13,48)
+  points <- eventReactive(input$cast, {
+    cbind(c(13,48),c(13.1,48))
   }, ignoreNULL = FALSE)
 
   output$mymap <- renderLeaflet({
