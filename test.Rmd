@@ -1,1 +1,0 @@
-plot(mc_int(x_range = c(o,1), fun = "x^2", B = 10^5))
