@@ -1,6 +1,7 @@
 library(shiny)
 library(shinydashboard)
 library(leaflet)
+library(XML)
 categories <- list("Concerts & Tour Dates"= "music",
                    "Conferences & Tradeshows" = "conference",
                    "Comedy"= "comedy",

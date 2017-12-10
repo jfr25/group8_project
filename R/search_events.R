@@ -22,7 +22,6 @@
 #' mc_int(x_range = c(0,1), fun = "x^2", B = 10^5)
 #' mc_int(x_range = c(0,1), fun = "x^2*sin(x^2/pi)", B = 10^5)
 search_events <- function(location,date,category,key){
-  library(XML)
   url <- paste('http://api.eventful.com/rest/events/search?app_key=', key, '&page_size=1000&category=', category, '&location=',location,'&date=',date, sep ="")
   event_data <- xmlParse(url)
   event_data <- xmlToList(event_data)$event
