@@ -1,0 +1,12 @@
+name: EventfulMap
+title: EventfulMap
+username:
+account: skizcoder
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 247024
+bundleId: 1127254
+url: https://skizcoder.shinyapps.io/EventfulMap/
+when: 1512962927.43344
+asMultiple: FALSE
+asStatic: FALSE
