@@ -1,0 +1,7 @@
+---
+output: github_document
+---
+
+# Musicmapp Package
+  
+Our package contains two functions.  The most useful is the run_shiny() function which runs our eventful map visualization shiny app.  This application can search for events in the US by date, category, and location. It has a maximum of 1000 events which will be returned.  The other function, search_events() makes a request to Eventful.com and returns a dataframe of events based on request inputs. This dataframe is used by the first function run_shiny().

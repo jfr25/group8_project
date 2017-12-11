@@ -3,14 +3,14 @@ Type: Package
 Title: Music Mapp (Title Case)
 Version: 0.1.0
 Authors@R: c(
-    person("Jaclyn", "Rothenberg", email = "jfr25@psu.edu", role = c("aut","cre")),
+    person("Conner", "Shoop", email = "jfr25@psu.edu", role = c("aut","cre")),
     person("Angela", "Ting", role = "aut"),
     person("Ryan", "Faris", role = "aut"),
-    person("Conner", "Shoop", role = "aut")
+    person("Jaclyn", "Rothenberg", role = "aut")
     )
-Maintainer: Jaclyn Rothenberg <jfr25@psu.edu>
+Maintainer: Conner Shoop <cbs5287@psu.edu>
 Description: This package uses dataframes created from the Eventful API which creates a visual map that displays events in a specified geographic area. The users can input their location and a range of dates to find events from 29 categories, such as music, comedy, festivals and many more. 
-License: What license is it under?
+License: 
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1
